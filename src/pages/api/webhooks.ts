@@ -69,7 +69,7 @@ export default async function webHooks(
             await saveSubscribe(
               checkoutSession.subscription.toString(),
               checkoutSession.customer.toString(),
-              true
+              true // create instead of update
             );
 
             break;

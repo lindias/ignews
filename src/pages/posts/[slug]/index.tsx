@@ -1,8 +1,8 @@
 import { asHTML, asText } from "@prismicio/helpers";
 import { GetServerSideProps } from "next";
 import Head from "next/head";
-import { createClient } from "../../services/prismic";
-import { Container, Content } from "./slug.styles";
+import { createClient } from "../../../services/prismic";
+import { Container, Content } from "./styles";
 
 interface PostProps {
   post: {

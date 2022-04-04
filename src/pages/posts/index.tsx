@@ -2,7 +2,7 @@ import { asText } from "@prismicio/helpers";
 import { GetStaticProps } from "next";
 import Head from "next/head";
 import { createClient } from "../../services/prismic";
-import { Container, Content } from "./index.styles";
+import { Container, Content } from "./styles";
 
 type Post = {
   slug: string;
