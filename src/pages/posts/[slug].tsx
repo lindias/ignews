@@ -2,8 +2,51 @@ import { asHTML, asText } from "@prismicio/helpers";
 import { GetServerSideProps } from "next";
 import { getSession } from "next-auth/react";
 import Head from "next/head";
-import { createClient } from "../../../services/prismic";
-import { Container, Content } from "./styles";
+import styled from "styled-components";
+import { createClient } from "../../services/prismic";
+
+const Container = styled.main`
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 2rem;
+`;
+
+const Content = styled.article`
+  max-width: 720px;
+  margin: 5rem auto 0;
+
+  h1 {
+    font-size: 3.5rem;
+    font-weight: 900;
+  }
+
+  time {
+    display: block;
+    font-size: 1rem;
+    color: var(--gray-300);
+    margin-top: 1.5rem;
+  }
+
+  div {
+    margin-top: 2rem;
+    line-height: 2rem;
+    font-size: 1.125rem;
+    color: var(--gray-100);
+
+    p,
+    ul {
+      margin: 1.5rem 0;
+    }
+
+    ul {
+      padding-left: 1.5rem;
+
+      li {
+        margin: 0.5rem 0;
+      }
+    }
+  }
+`;
 
 interface PostProps {
   post: {
