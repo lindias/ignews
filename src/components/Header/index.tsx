@@ -5,7 +5,7 @@ import { SignInButton } from "../SignInButton";
 import { Container, Content } from "./styles";
 
 export function Header() {
-  const { pathname } = useRouter();
+  const router = useRouter();
   return (
     <Container>
       <Content>
@@ -17,10 +17,12 @@ export function Header() {
         />
         <nav>
           <Link href="/">
-            <a className={pathname === "/" ? "active" : ""}>Home</a>
+            <a className={router.pathname === "/" ? "active" : ""}>Home</a>
           </Link>
           <Link href="/posts">
-            <a className={pathname === "/posts" ? "active" : ""}>Posts</a>
+            <a className={router.pathname.includes("/posts") ? "active" : ""}>
+              Posts
+            </a>
           </Link>
         </nav>
         <SignInButton />

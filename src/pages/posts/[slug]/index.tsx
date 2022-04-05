@@ -1,5 +1,6 @@
 import { asHTML, asText } from "@prismicio/helpers";
 import { GetServerSideProps } from "next";
+import { getSession } from "next-auth/react";
 import Head from "next/head";
 import { createClient } from "../../../services/prismic";
 import { Container, Content } from "./styles";
@@ -30,8 +31,21 @@ export default function Post({ post }: PostProps) {
   );
 }
 
-export const getServerSideProps: GetServerSideProps = async ({ params }) => {
+export const getServerSideProps: GetServerSideProps = async ({
+  req,
+  params,
+}) => {
+  const session = await getSession({ req });
   const { slug } = params;
+
+  if (!session?.activeSubscription) {
+    return {
+      redirect: {
+        destination: "/",
+        permanent: false,
+      },
+    };
+  }
 
   const client = createClient();
 

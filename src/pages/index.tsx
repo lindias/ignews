@@ -4,7 +4,7 @@ import Image from "next/image";
 import { SubscribeButton } from "../components/SubscribeButton";
 import { stripe } from "../services/stripe";
 import { formatPrice } from "../utils/formatPrice";
-import { Container, Content } from "./home.styles";
+import { Container, Content } from "./styles";
 
 interface HomeProps {
   product: {
